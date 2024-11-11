@@ -215,22 +215,6 @@
                                     <label for="apellido">APELLIDO:</label>
                                     <input type="text" id="apellido" name="apellido" required>
                                 </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="form-field">
-                                    <label>SEXO:</label>
-                                    <div class="radio-group">
-                                        <div class="radio-option">
-                                            <input type="radio" id="masculino" name="sexo" value="masculino">
-                                            <label for="masculino">Masculino</label>
-                                        </div>
-                                        <div class="radio-option">
-                                            <input type="radio" id="femenino" name="sexo" value="femenino">
-                                            <label for="femenino">Femenino</label>
-                                        </div>
-                                    </div>
-                                </div>
                                 <div class="form-field">
                                     <label for="nacionalidad">NACIONALIDAD:</label>
                                     <select id="nacionalidad" name="nacionalidad" required>
@@ -240,9 +224,20 @@
                                         <option value="uruguay">Uruguay</option>
                                     </select>
                                 </div>
-                            </div>
-
-                            <div class="form-group">
+                      
+                                 <div class="form-field">
+                                     <label>SEXO:</label>
+                                     <div class="radio-group">
+                                         <div class="radio-option">
+                                             <input type="radio" id="masculino" name="sexo" value="masculino">
+                                             <label for="masculino">Masculino</label>
+                                         </div>
+                                         <div class="radio-option">
+                                             <input type="radio" id="femenino" name="sexo" value="femenino">
+                                             <label for="femenino">Femenino</label>
+                                         </div>
+                                     </div>
+                                 </div>
                                 <div class="form-field">
                                     <label for="provincia">PROVINCIA:</label>
                                     <select id="provincia" name="provincia" required>
@@ -257,6 +252,8 @@
                                     <input type="email" id="email" name="email" required>
                                 </div>
                             </div>
+
+
 
                             <div class="section-title">DATOS LABORALES</div>
                             <div class="form-group">

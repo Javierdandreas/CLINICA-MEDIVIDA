@@ -207,81 +207,68 @@
                             <div class="form-group">
                                 <div class="form-field">
                                     <label for="dni">DNI:</label>
-                                    <input type="text" id="dni" name="dni" required>
+                                    <asp:TextBox ID="txtDni" runat="server" MaxLength="8"></asp:TextBox>
+                                 
                                 </div>
                                 <div class="form-field">
                                     <label for="nombre">NOMBRE:</label>
-                                    <input type="text" id="nombre" name="nombre" required>
+                                    <asp:TextBox ID="txtNombre" runat="server"></asp:TextBox>
+                                    
                                 </div>
                                 <div class="form-field">
                                     <label for="apellido">APELLIDO:</label>
-                                    <input type="text" id="apellido" name="apellido" required>
+                                    <asp:TextBox ID="txtApellido" runat="server"></asp:TextBox>
+                                   
                                 </div>
                                 <div class="form-field">
                                     <label for="fechaNacimiento">FECHA DE NACIMIENTO:</label>
-                                    <input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
+                                    <asp:TextBox ID="txtFechaNacimiento" runat="server"></asp:TextBox>
                                 </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="form-field">
-                                    <label>SEXO:</label>
-                                    <div class="radio-group">
-                                        <div class="radio-option">
-                                            <input type="radio" id="masculino" name="sexo" value="masculino">
-                                            <label for="masculino">Masculino</label>
-                                        </div>
-                                        <div class="radio-option">
-                                            <input type="radio" id="femenino" name="sexo" value="femenino">
-                                            <label for="femenino">Femenino</label>
-                                        </div>
-                                    </div>
-                                </div>
+                                
                                 <div class="form-field">
                                     <label for="nacionalidad">NACIONALIDAD:</label>
-                                    <select id="nacionalidad" name="nacionalidad" required>
-                                        <option value="">--Seleccionar--</option>
-                                        <option value="argentina">Argentina</option>
-                                        <option value="chile">Chile</option>
-                                        <option value="uruguay">Uruguay</option>
-                                    </select>
+                                    <asp:DropDownList ID="ddlNacionalidades" runat="server">
+                                        <asp:ListItem></asp:ListItem>
+                                    </asp:DropDownList>
+                                </div>
+
+                                <div class="form-field">
+                                    <label>SEXO:</label>
+                                    <asp:RadioButtonList ID="RadioButtonList1" class="radio-group" runat="server">
+                                        <asp:ListItem Value="M" class="radio-option">Masculino</asp:ListItem>
+                                        <asp:ListItem Value="F" class="radio-option">Femenino</asp:ListItem>
+                                    </asp:RadioButtonList>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <div class="form-field">
                                     <label for="telefono">TELÉFONO:</label>
-                                    <input type="tel" id="telefono" name="telefono" required>
+                                    <asp:TextBox ID="txtTelefono" runat="server"></asp:TextBox>
                                 </div>
                                 <div class="form-field">
                                     <label for="correo">CORREO ELECTRÓNICO:</label>
-                                    <input type="email" id="correo" name="correo" required>
+                                    <asp:TextBox ID="txtCorreo" runat="server"></asp:TextBox>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <div class="form-field">
                                     <label for="provincia">PROVINCIA:</label>
-                                    <select id="provincia" name="provincia" required>
-                                        <option value="">--Seleccionar--</option>
-                                        <option value="buenosaires">Buenos Aires</option>
-                                        <option value="cordoba">Córdoba</option>
-                                        <option value="santafe">Santa Fe</option>
-                                    </select>
+                                    <asp:DropDownList ID="ddlProvincias" runat="server"></asp:DropDownList>
                                 </div>
                                 <div class="form-field">
                                     <label for="localidad">LOCALIDAD:</label>
-                                    <select id="localidad" name="localidad" required>
-                                        <option value="">--Seleccionar--</option>
-                                    </select>
+                                    <asp:DropDownList ID="ddlLocalidades" runat="server"></asp:DropDownList>
                                 </div>
                                 <div class="form-field">
                                     <label for="direccion">DIRECCIÓN:</label>
-                                    <input type="text" id="direccion" name="direccion" required>
+                                    <asp:TextBox ID="txtDireccion" runat="server"></asp:TextBox>
                                 </div>
                             </div>
 
-                            <button type="submit" id="boton">Agregar Paciente</button>
+                            <asp:Button ID="boton" runat="server" Text="Agregar Paciente" />
+                            <asp:Label ID="lblResultado" runat="server" ></asp:Label>
                     </div>
                     <br/>
                 </div>
