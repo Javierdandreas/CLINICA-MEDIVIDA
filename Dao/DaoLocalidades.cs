@@ -10,7 +10,7 @@ namespace Dao
     public class DaoLocalidades
     {
         AccesoDatos ad = new AccesoDatos();
-        public DataTable obtenerTodasLasLocalidades(int codProv)
+        public DataTable obtenerTodasLasLocalidades(string codProv)
         {
             DataTable dt = ad.obtenerTabla("Localidades", "select * from Localidades where codProv_L = " + codProv);
             return dt;

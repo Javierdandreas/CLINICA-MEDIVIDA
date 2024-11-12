@@ -208,36 +208,43 @@
                                 <div class="form-field">
                                     <label for="dni">DNI:</label>
                                     <asp:TextBox ID="txtDni" runat="server" MaxLength="8"></asp:TextBox>
-                                 
+                                    <asp:RequiredFieldValidator ID="rfvDni" runat="server" ErrorMessage="Ingrese DNI" ControlToValidate="txtDni" ValidationGroup="Agregar">*</asp:RequiredFieldValidator>
+                                    <asp:RegularExpressionValidator ID="revDni" runat="server" ErrorMessage="DNI solo con numeros. 8 Digitos" ControlToValidate="txtDni" ValidationGroup="Agregar" ValidationExpression="^\d{8}$">*</asp:RegularExpressionValidator>
                                 </div>
                                 <div class="form-field">
                                     <label for="nombre">NOMBRE:</label>
                                     <asp:TextBox ID="txtNombre" runat="server"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="rfvNombre" runat="server" ErrorMessage="Ingrese Nombre" ValidationGroup="Agregar" ControlToValidate="txtNombre">*</asp:RequiredFieldValidator>
                                     
                                 </div>
                                 <div class="form-field">
                                     <label for="apellido">APELLIDO:</label>
                                     <asp:TextBox ID="txtApellido" runat="server"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="rfvApellido" runat="server"  ErrorMessage="Ingrese Apellido" ValidationGroup="Agregar" ControlToValidate="txtApellido">*</asp:RequiredFieldValidator>
                                    
                                 </div>
                                 <div class="form-field">
                                     <label for="fechaNacimiento">FECHA DE NACIMIENTO:</label>
                                     <asp:TextBox ID="txtFechaNacimiento" runat="server"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="rfvFecha" runat="server" ErrorMessage="Ingrese Fecha de Nacimiento" ValidationGroup="Agregar" ControlToValidate="txtFechaNacimiento">*</asp:RequiredFieldValidator>
+                                    <asp:RegularExpressionValidator ID="revNacimiento" runat="server" ErrorMessage="Fechas hasta el año 2024.Formato dd/mm/aaaa" ControlToValidate="txtFechaNacimiento" ValidationExpression="^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/(19[5-9][0-9]|20[0-1][0-9]|202[0-4])$" ValidationGroup="Agregar">*</asp:RegularExpressionValidator>
                                 </div>
                                 
                                 <div class="form-field">
                                     <label for="nacionalidad">NACIONALIDAD:</label>
                                     <asp:DropDownList ID="ddlNacionalidades" runat="server">
-                                        <asp:ListItem></asp:ListItem>
                                     </asp:DropDownList>
+
+                                    <asp:RequiredFieldValidator ID="rfvNacionalidad" runat="server" ErrorMessage="Seleccione una Nacionalidad" ControlToValidate="ddlNacionalidades" InitialValue="---Seleccionar---" ValidationGroup="Agregar">*</asp:RequiredFieldValidator>
                                 </div>
 
                                 <div class="form-field">
                                     <label>SEXO:</label>
-                                    <asp:RadioButtonList ID="RadioButtonList1" class="radio-group" runat="server">
-                                        <asp:ListItem Value="M" class="radio-option">Masculino</asp:ListItem>
-                                        <asp:ListItem Value="F" class="radio-option">Femenino</asp:ListItem>
+                                    <asp:RadioButtonList ID="rblSexo" RepeatDirection="Horizontal" class="radio-group" runat="server">
+                                        <asp:ListItem Value="M" >Masculino</asp:ListItem>
+                                        <asp:ListItem Value="F" >Femenino</asp:ListItem>
                                     </asp:RadioButtonList>
+                                    <asp:RequiredFieldValidator ID="rfvSexo" runat="server" ErrorMessage="Ingrese su Sexo" ControlToValidate="rblSexo" ValidationGroup="Agregar">*</asp:RequiredFieldValidator>
                                 </div>
                             </div>
 
@@ -245,29 +252,37 @@
                                 <div class="form-field">
                                     <label for="telefono">TELÉFONO:</label>
                                     <asp:TextBox ID="txtTelefono" runat="server"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="rfvTelefono" runat="server" ErrorMessage="Ingrese su número de telefono" ControlToValidate="txtTelefono" ValidationGroup="Agregar">*</asp:RequiredFieldValidator> 
+                                    <asp:RegularExpressionValidator ID="revTelefono" runat="server" ErrorMessage="Formato: 1141234567" ValidationExpression="^(?:11|[2368][1-4]\d{1}|[34]\d{2})?\d{6,8}$" ValidationGroup="Agregar" ControlToValidate="txtTelefono">*</asp:RegularExpressionValidator>
                                 </div>
                                 <div class="form-field">
                                     <label for="correo">CORREO ELECTRÓNICO:</label>
                                     <asp:TextBox ID="txtCorreo" runat="server"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="rfvCorreo" runat="server" ErrorMessage="Ingrese su Correo " ControlToValidate="txtCorreo" ValidationGroup="Agregar">*</asp:RequiredFieldValidator>    
+                                    <asp:RegularExpressionValidator ID="revCorreo" runat="server" ErrorMessage="Formato de correo Invalido" ControlToValidate="txtCorreo" ValidationExpression="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" ValidationGroup="Agregar">*</asp:RegularExpressionValidator>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <div class="form-field">
                                     <label for="provincia">PROVINCIA:</label>
-                                    <asp:DropDownList ID="ddlProvincias" runat="server"></asp:DropDownList>
+                                    <asp:DropDownList ID="ddlProvincias" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlProvincias_SelectedIndexChanged"></asp:DropDownList>
+                                    <asp:RequiredFieldValidator ID="rfvProvincia" runat="server" ErrorMessage="Seleccione una Provincia" ControlToValidate="ddlProvincias" InitialValue="---Seleccionar---" ValidationGroup="Agregar">*</asp:RequiredFieldValidator>
                                 </div>
-                                <div class="form-field">
+                                <div class="form-field" validationgroup="Agregar">
                                     <label for="localidad">LOCALIDAD:</label>
                                     <asp:DropDownList ID="ddlLocalidades" runat="server"></asp:DropDownList>
+                                    <asp:RequiredFieldValidator ID="rfvLocalidad" runat="server" ErrorMessage="Seleccione una Localidad" ValidationGroup="Agregar" InitialValue="---Seleccionar---" ControlToValidate="ddlLocalidades">*</asp:RequiredFieldValidator>
                                 </div>
                                 <div class="form-field">
                                     <label for="direccion">DIRECCIÓN:</label>
                                     <asp:TextBox ID="txtDireccion" runat="server"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="rfvDireccion" runat="server" ErrorMessage="Ingrese su Direccion" ControlToValidate="txtDireccion" ValidationGroup="Agregar">*</asp:RequiredFieldValidator>
                                 </div>
                             </div>
 
-                            <asp:Button ID="boton" runat="server" Text="Agregar Paciente" />
+                            <asp:Button ID="btnAgregar" runat="server" Text="Agregar Paciente" OnClick="btnAgregar_Click" ValidationGroup="Agregar"/>
+                            <asp:ValidationSummary ID="ValidationSummary1" runat="server" ValidationGroup="Agregar" />
                             <asp:Label ID="lblResultado" runat="server" ></asp:Label>
                     </div>
                     <br/>
@@ -422,7 +437,7 @@
                         cursor: pointer;
                     }
 
-                    #boton {
+                    #btnAgregar {
                         background: #3f65d3;
                         color: white;
                         padding: 12px 25px;
@@ -436,13 +451,13 @@
                         min-width: 200px;
                     }
 
-                    #boton:hover {
+                    #btnAgregar:hover {
                         background: #3a3bb8;
                         transform: translateY(-2px);
                         box-shadow: 0 4px 8px rgba(70, 72, 212, 0.3);
                     }
 
-                    #boton:active {
+                    #btnAgregar:active {
                         transform: translateY(0);
                         box-shadow: 0 2px 4px rgba(70, 72, 212, 0.2);
                     }

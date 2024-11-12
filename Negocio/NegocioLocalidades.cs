@@ -10,7 +10,7 @@ namespace Negocio
 {
     public class NegocioLocalidades
     {
-        public DataTable getLocalidades(int codProv)
+        public DataTable getLocalidades(string codProv)
         {
             DaoLocalidades dao = new DaoLocalidades();
             return dao.obtenerTodasLasLocalidades(codProv);
