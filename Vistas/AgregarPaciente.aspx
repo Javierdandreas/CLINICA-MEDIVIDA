@@ -65,10 +65,7 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="AgregarMedico.aspx">Agregar Medicos</a>
-                        <a class="collapse-item" href="ModificarMedico.aspx">Modificar Medicos</a>
-                        <a class="collapse-item" href="ListarMedicos.aspx">Listar Medicos</a>
-                        <a class="collapse-item" href="EliminarMedico.aspx">Eliminar Medicos</a>
-                    </div>
+                        <a class="collapse-item" href="ListarMedicos.aspx">Listar Medicos</a>                    </div>
                 </div>
             </li>
 
@@ -83,9 +80,7 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="AgregarPaciente.aspx">Agregar Pacientes</a>
-                        <a class="collapse-item" href="ModificarPaciente.aspx">Modificar Pacientes</a>
                         <a class="collapse-item" href="ListarPacientes.aspx">Listar Pacientes</a>
-                        <a class="collapse-item" href="EliminarPaciente.aspx">Eliminar Pacientes</a>
                     </div>
                 </div>
             </li>
@@ -115,14 +110,6 @@
                 <a class="nav-link" href="TurnosAdmin.aspx">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Turnos</span></a>
-            </li>
-
-
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="tables.aspx">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
             </li>
 
             <!-- Divider -->

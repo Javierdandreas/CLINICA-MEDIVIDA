@@ -46,3 +46,9 @@ C:\Users\pepet\Downloads\TPFINAL_GRUPO_NRO3\Entidades\obj\Debug\Entidades.csproj
 C:\Users\pepet\Downloads\TPFINAL_GRUPO_NRO3\Entidades\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
 C:\Users\pepet\Downloads\TPFINAL_GRUPO_NRO3\Entidades\obj\Debug\Entidades.dll
 C:\Users\pepet\Downloads\TPFINAL_GRUPO_NRO3\Entidades\obj\Debug\Entidades.pdb
+E:\UTN\PROYECTO ASP.NET\CLINICA MEDIVIDA VSC\Entidades\bin\Debug\Entidades.dll
+E:\UTN\PROYECTO ASP.NET\CLINICA MEDIVIDA VSC\Entidades\bin\Debug\Entidades.pdb
+E:\UTN\PROYECTO ASP.NET\CLINICA MEDIVIDA VSC\Entidades\obj\Debug\Entidades.csproj.AssemblyReference.cache
+E:\UTN\PROYECTO ASP.NET\CLINICA MEDIVIDA VSC\Entidades\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
+E:\UTN\PROYECTO ASP.NET\CLINICA MEDIVIDA VSC\Entidades\obj\Debug\Entidades.dll
+E:\UTN\PROYECTO ASP.NET\CLINICA MEDIVIDA VSC\Entidades\obj\Debug\Entidades.pdb

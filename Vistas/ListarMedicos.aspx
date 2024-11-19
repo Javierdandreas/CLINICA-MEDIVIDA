@@ -14,6 +14,7 @@
     <title>Listar Medico</title>
 
     <!-- Custom fonts for this template-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
@@ -65,10 +66,7 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="AgregarMedico.aspx">Agregar Medicos</a>
-                        <a class="collapse-item" href="ModificarMedico.aspx">Modificar Medicos</a>
-                        <a class="collapse-item" href="ListarMedicos.aspx">Listar Medicos</a>
-                        <a class="collapse-item" href="EliminarMedico.aspx">Eliminar Medicos</a>
-                    </div>
+                        <a class="collapse-item" href="ListarMedicos.aspx">Listar Medicos</a>                    </div>
                 </div>
             </li>
 
@@ -83,10 +81,7 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="AgregarPaciente.aspx">Agregar Pacientes</a>
-                        <a class="collapse-item" href="ModificarPaciente.aspx">Modificar Pacientes</a>
-                        <a class="collapse-item" href="ListarPacientes.aspx">Listar Pacientes</a>
-                        <a class="collapse-item" href="EliminarPaciente.aspx">Eliminar Pacientes</a>
-                    </div>
+                        <a class="collapse-item" href="ListarPacientes.aspx">Listar Pacientes</a>                    </div>
                 </div>
             </li>
 
@@ -115,13 +110,6 @@
                     <span>Turnos</span></a>
             </li>
 
-
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="tables.aspx">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
-            </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -197,6 +185,140 @@
                     <!-- Page Heading -->
                     <h1 class="h3 mb-4 text-gray-800">Listado de Medicos</h1>
 
+                    <div class="table-responsive"> 
+                    <asp:GridView ID="grdListadoMed" runat="server" AutoGenerateColumns="False" class="table" AutoGenerateEditButton="True" OnRowCancelingEdit="grdListadoMed_RowCancelingEdit" OnRowEditing="grdListadoMed_RowEditing" OnRowUpdating="grdListadoMed_RowUpdating" AllowCustomPaging="True" AllowPaging="True" OnPageIndexChanging="grdListadoMed_PageIndexChanging">
+                        <Columns>
+                            <asp:TemplateField HeaderText="LEGAJO">
+                                <EditItemTemplate>
+                                    <asp:Label ID="lbl_eit_legajo" runat="server" Text='<%# Bind("legajo_M") %>'></asp:Label>
+                                </EditItemTemplate>
+                                <ItemTemplate>
+                                    <asp:Label ID="lbl_it_legajo" runat="server" Text='<%# Bind("legajo_M") %>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="DNI">
+                                <EditItemTemplate>
+                                    <asp:TextBox ID="txt_eit_dni" runat="server" Text='<%# Bind("DNI_M") %>'></asp:TextBox>
+                                </EditItemTemplate>
+                                <ItemTemplate>
+                                    <asp:Label ID="lbl_it_dni" runat="server" Text='<%# Bind("DNI_M") %>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="NOMBRE">
+                                <EditItemTemplate>
+                                    <asp:TextBox ID="txt_eit_nombre" runat="server" Text='<%# Bind("Nombre_M") %>'></asp:TextBox>
+                                </EditItemTemplate>
+                                <ItemTemplate>
+                                    <asp:Label ID="lbl_it_nombre" runat="server" Text='<%# Bind("Nombre_M") %>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="APELLIDO">
+                                <EditItemTemplate>
+                                    <asp:TextBox ID="txt_eit_apellido" runat="server" Text='<%# Bind("Apellido_M") %>'></asp:TextBox>
+                                </EditItemTemplate>
+                                <ItemTemplate>
+                                    <asp:Label ID="lbl_it_apellido" runat="server" Text='<%# Bind("Apellido_M") %>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="SEXO">
+                                <EditItemTemplate>
+                                    <asp:DropDownList ID="ddl_eit_sexo" runat="server">
+                                    </asp:DropDownList>
+                                </EditItemTemplate>
+                                <ItemTemplate>
+                                    <asp:Label ID="lbl_it_sexo" runat="server" Text='<%# Bind("Sexo_M") %>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="FECHA DE NACIMIENTO">
+                                <EditItemTemplate>
+                                    <asp:TextBox ID="txt_eit_fechaNacimiento" runat="server" Text='<%# Bind("[Fecha Nacimiento_M]") %>'></asp:TextBox>
+                                </EditItemTemplate>
+                                <ItemTemplate>
+                                    <asp:Label ID="lbl_it_fechaNacimiento" runat="server" Text='<%# Bind("[Fecha Nacimiento_M]") %>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="NACIONALIDAD">
+                                <EditItemTemplate>
+                                    <asp:DropDownList ID="ddl_eitm_nacionalidad" runat="server">
+                                    </asp:DropDownList>
+                                </EditItemTemplate>
+                                <ItemTemplate>
+                                    <asp:Label ID="lbl_it_nacionalidad" runat="server" Text='<%# Bind("DescripcionNacionalidad_M") %>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="PROVINCIA">
+                                <EditItemTemplate>
+                                    <asp:DropDownList ID="ddl_eit_provincia" runat="server">
+                                    </asp:DropDownList>
+                                </EditItemTemplate>
+                                <ItemTemplate>
+                                    <asp:Label ID="lbl_it_provincia" runat="server" Text='<%# Bind("DescripcionProvincia_M") %>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="LOCALIDAD">
+                                <EditItemTemplate>
+                                    <asp:DropDownList ID="ddl_eit_localidad" runat="server">
+                                    </asp:DropDownList>
+                                </EditItemTemplate>
+                                <ItemTemplate>
+                                    <asp:Label ID="lbl_it_localidad" runat="server" Text='<%# Bind("DescripcionLocalidad_M") %>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="DIRECCIÓN">
+                                <EditItemTemplate>
+                                    <asp:TextBox ID="txt_eit_direccion" runat="server" Text='<%# Bind("Direccion_M") %>'></asp:TextBox>
+                                </EditItemTemplate>
+                                <ItemTemplate>
+                                    <asp:Label ID="lbl_it_direccion" runat="server" Text='<%# Bind("Direccion_M") %>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="CORREO">
+                                <EditItemTemplate>
+                                    <asp:TextBox ID="txt_eit_correo" runat="server" Text='<%# Bind("CorreoElectronico_M") %>'></asp:TextBox>
+                                </EditItemTemplate>
+                                <ItemTemplate>
+                                    <asp:Label ID="lbl_it_correo" runat="server" Text='<%# Bind("CorreoElectronico_M") %>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="ESPECIALIDAD">
+                                <EditItemTemplate>
+                                    <asp:DropDownList ID="ddl_eit_especialidad" runat="server">
+                                    </asp:DropDownList>
+                                </EditItemTemplate>
+                                <ItemTemplate>
+                                    <asp:Label ID="lbl_it_especialidad" runat="server" Text='<%# Bind("Especialidad") %>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="HORARIO">
+                                <EditItemTemplate>
+                                    <asp:Label ID="lbl_eit_Horario" runat="server" Text='<%# Bind("[Rango Horario_M]") %>'></asp:Label>
+                                </EditItemTemplate>
+                                <ItemTemplate>
+                                    <asp:Label ID="lbl_it_Horario" runat="server" Text='<%# Bind("[Rango Horario_M]") %>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="USUARIO">
+                                <EditItemTemplate>
+                                    <asp:TextBox ID="txt_eit_usuario" runat="server" Text='<%# Bind("User_M") %>'></asp:TextBox>
+                                </EditItemTemplate>
+                                <ItemTemplate>
+                                    <asp:Label ID="lbl_it_usuario" runat="server" Text='<%# Bind("User_M") %>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="CONTRASEÑA">
+                                <EditItemTemplate>
+                                    <asp:Label ID="lbl_eit_contraseña" runat="server" Text='<%# Bind("Password_M") %>'></asp:Label>
+                                </EditItemTemplate>
+                                <ItemTemplate>
+                                    <asp:Label ID="lbl_it_contraseña" runat="server" Text='<%# Bind("Password_M") %>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                        </Columns>
+                    </asp:GridView>
+                </div>
+
+
+
                 </div>
                 <!-- /.container-fluid -->
 
@@ -255,6 +377,7 @@
     <script src="js/sb-admin-2.min.js"></script>
 
     </form>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
 </body>
 

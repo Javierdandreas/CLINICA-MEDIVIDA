@@ -14,13 +14,9 @@ namespace Entidades
         private string nombre_M;
         private string apellido_M;
         private char sexo_M;
-       // private string nacionalidad_M;
         private string fechaNacimiento_M;
         private string direccion_M;
-       // private string codLoc_M;
-       // private string codProv_M;
         private string correoElectronico_M;
-        //private string codEspecialidad_M;
         private char rangoHorario_M;
         private string user_M;
         private string password_M;
@@ -68,12 +64,6 @@ namespace Entidades
             set { sexo_M = value; }
         }
 
-        /*public string Nacionalidad_M
-        {
-            get { return nacionalidad_M; }
-            set { nacionalidad_M = value; }
-        }*/
-
         public string FechaNacimiento_M
         {
             get { return fechaNacimiento_M; }
@@ -86,29 +76,11 @@ namespace Entidades
             set { direccion_M = value; }
         }
 
-        /*public string CodLoc_M
-        {
-            get { return codLoc_M; }
-            set { codLoc_M = value; }
-        }*/
-
-        /*public string CodProv_M
-        {
-            get { return codProv_M; }
-            set { codProv_M = value; }
-        }*/
-
         public string CorreoElectronico_M
         {
             get { return correoElectronico_M; }
             set { correoElectronico_M = value; }
         }
-
-        /*public string CodEspecialidad_M
-        {
-            get { return codEspecialidad_M; }
-            set { codEspecialidad_M = value; }
-        }*/
 
         public char RangoHorario_M
         {

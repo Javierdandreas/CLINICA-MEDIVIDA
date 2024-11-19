@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "E:\\UTN\\PROYECTO ASP.NET\\CLINICA MEDIVIDA VSC\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{530FCEDD-5C1C-4B68-A298-886CBE65B2E8}|Vistas\\Vistas.csproj|e:\\utn\\proyecto asp.net\\clinica medivida vsc\\vistas\\agregarmedico.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{530FCEDD-5C1C-4B68-A298-886CBE65B2E8}|Vistas\\Vistas.csproj|solutionrelative:vistas\\agregarmedico.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{530FCEDD-5C1C-4B68-A298-886CBE65B2E8}|Vistas\\Vistas.csproj|e:\\utn\\proyecto asp.net\\clinica medivida vsc\\vistas\\listarmedicos.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{530FCEDD-5C1C-4B68-A298-886CBE65B2E8}|Vistas\\Vistas.csproj|solutionrelative:vistas\\listarmedicos.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{530FCEDD-5C1C-4B68-A298-886CBE65B2E8}|Vistas\\Vistas.csproj|e:\\utn\\proyecto asp.net\\clinica medivida vsc\\vistas\\agregarpaciente.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{530FCEDD-5C1C-4B68-A298-886CBE65B2E8}|Vistas\\Vistas.csproj|solutionrelative:vistas\\agregarpaciente.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{530FCEDD-5C1C-4B68-A298-886CBE65B2E8}|Vistas\\Vistas.csproj|E:\\UTN\\PROYECTO ASP.NET\\CLINICA MEDIVIDA VSC\\vistas\\listarmedicos.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{530FCEDD-5C1C-4B68-A298-886CBE65B2E8}|Vistas\\Vistas.csproj|solutionrelative:vistas\\listarmedicos.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0C6E17E8-8E68-439E-84F2-C5244F7EBA7B}|Dao\\Dao.csproj|e:\\utn\\proyecto asp.net\\clinica medivida vsc\\dao\\daolocalidades.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0C6E17E8-8E68-439E-84F2-C5244F7EBA7B}|Dao\\Dao.csproj|solutionrelative:dao\\daolocalidades.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B599D67C-0274-46A0-9B5B-3E0B2D7DD590}|Negocio\\Negocio.csproj|E:\\UTN\\PROYECTO ASP.NET\\CLINICA MEDIVIDA VSC\\negocio\\negociomedicos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B599D67C-0274-46A0-9B5B-3E0B2D7DD590}|Negocio\\Negocio.csproj|solutionrelative:negocio\\negociomedicos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,45 +22,45 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "DaoLocalidades.cs",
-              "DocumentMoniker": "E:\\UTN\\PROYECTO ASP.NET\\CLINICA MEDIVIDA VSC\\Dao\\DaoLocalidades.cs",
-              "RelativeDocumentMoniker": "Dao\\DaoLocalidades.cs",
-              "ToolTip": "E:\\UTN\\PROYECTO ASP.NET\\CLINICA MEDIVIDA VSC\\Dao\\DaoLocalidades.cs",
-              "RelativeToolTip": "Dao\\DaoLocalidades.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAABDAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-12T01:04:43.284Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "AgregarMedico.aspx.cs",
-              "DocumentMoniker": "E:\\UTN\\PROYECTO ASP.NET\\CLINICA MEDIVIDA VSC\\Vistas\\AgregarMedico.aspx.cs",
-              "RelativeDocumentMoniker": "Vistas\\AgregarMedico.aspx.cs",
-              "ToolTip": "E:\\UTN\\PROYECTO ASP.NET\\CLINICA MEDIVIDA VSC\\Vistas\\AgregarMedico.aspx.cs*",
-              "RelativeToolTip": "Vistas\\AgregarMedico.aspx.cs*",
-              "ViewState": "AgIAACIAAAAAAAAAAAAAwIUAAABeAAAAAAAAAA==",
+              "Title": "ListarMedicos.aspx.cs",
+              "DocumentMoniker": "E:\\UTN\\PROYECTO ASP.NET\\CLINICA MEDIVIDA VSC\\Vistas\\ListarMedicos.aspx.cs",
+              "RelativeDocumentMoniker": "Vistas\\ListarMedicos.aspx.cs",
+              "ToolTip": "E:\\UTN\\PROYECTO ASP.NET\\CLINICA MEDIVIDA VSC\\Vistas\\ListarMedicos.aspx.cs*",
+              "RelativeToolTip": "Vistas\\ListarMedicos.aspx.cs*",
+              "ViewState": "AgIAAH8AAAAAAAAAAAAYwJUAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-12T01:02:25.986Z",
+              "WhenOpened": "2024-11-18T18:49:40.918Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "AgregarPaciente.aspx.cs",
-              "DocumentMoniker": "E:\\UTN\\PROYECTO ASP.NET\\CLINICA MEDIVIDA VSC\\Vistas\\AgregarPaciente.aspx.cs",
-              "RelativeDocumentMoniker": "Vistas\\AgregarPaciente.aspx.cs",
-              "ToolTip": "E:\\UTN\\PROYECTO ASP.NET\\CLINICA MEDIVIDA VSC\\Vistas\\AgregarPaciente.aspx.cs*",
-              "RelativeToolTip": "Vistas\\AgregarPaciente.aspx.cs*",
-              "ViewState": "AgIAACgAAAAAAAAAAAAQwCkAAAA3AAAAAAAAAA==",
+              "Title": "ListarMedicos.aspx",
+              "DocumentMoniker": "E:\\UTN\\PROYECTO ASP.NET\\CLINICA MEDIVIDA VSC\\Vistas\\ListarMedicos.aspx",
+              "RelativeDocumentMoniker": "Vistas\\ListarMedicos.aspx",
+              "ToolTip": "E:\\UTN\\PROYECTO ASP.NET\\CLINICA MEDIVIDA VSC\\Vistas\\ListarMedicos.aspx*",
+              "RelativeToolTip": "Vistas\\ListarMedicos.aspx*",
+              "LogicalView": "7651a702-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-11-16T03:03:22.411Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "NegocioMedicos.cs",
+              "DocumentMoniker": "E:\\UTN\\PROYECTO ASP.NET\\CLINICA MEDIVIDA VSC\\Negocio\\NegocioMedicos.cs",
+              "RelativeDocumentMoniker": "Negocio\\NegocioMedicos.cs",
+              "ToolTip": "E:\\UTN\\PROYECTO ASP.NET\\CLINICA MEDIVIDA VSC\\Negocio\\NegocioMedicos.cs",
+              "RelativeToolTip": "Negocio\\NegocioMedicos.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAqwBYAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-12T00:28:27.543Z",
+              "WhenOpened": "2024-11-18T18:59:33.937Z",
               "EditorCaption": ""
             }
           ]
