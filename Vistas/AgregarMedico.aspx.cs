@@ -52,12 +52,10 @@ namespace Vistas
         }
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
-            
-
             //verifica que haya por lo menos un dia seleccionado en el cblist
-            if (verificarCheckBoxList() == false) { 
-                lblDiasSeleccionados.Text = "Seleccione por lo menos un dia de Atencion Medica";
-                  return; 
+            if (verificarCheckBoxList() == false) {
+                ShowAlert("Precaución", "Selecciona por lo menos un dia de trabajo!", "warning");
+                return;
             }
             else { 
                 lblDiasSeleccionados.Text = "";
@@ -68,10 +66,12 @@ namespace Vistas
             bool existeUser = nm.existeUser(med);
             lblAgregado.Text = "";
             if (existeUser) { 
-                lblAgregado.Text += "El Nombre de usuario ya existe."; 
+                ShowAlert("Precaución", "Este nombre de usuario ya esta en uso", "warning");
+                return;
             }
             if (existeDni) { 
-                lblAgregado.Text += "El DNI ya existe."; 
+                ShowAlert("Precaución", "Este DNI ya esta en uso", "warning");
+                return;
             }
             if (lblAgregado.Text != "") {
                 return; 
@@ -84,7 +84,7 @@ namespace Vistas
             //GENERO LOS DIAS Y HORAS QUE VA A TRABAJAR EL MEDICO EN LA CLINICA. ESTOS REGISTROS APARECERAN EN LA TABLA DIASMEDICOS. 
 
             cargarTablaDiasMedicos(med);
-            lblAgregado.Text = "Medico agregado con éxito. Por favor actualice la agenda en la seccion Turnos del Portal";
+            ShowAlert("¡Perfecto!", "Medico agregado con éxito!!", "success");
             limpiarControles();
         }
         private void CargarMedico(ref Medico m)
@@ -125,7 +125,6 @@ namespace Vistas
         }
         private void CargarProvincias()
         {
-
             ddlProvincias.DataSource = np.getProvincias();
             ddlProvincias.DataValueField = "codProv_P";
             ddlProvincias.DataTextField = "descripcion_P";
@@ -150,7 +149,6 @@ namespace Vistas
         }
         private void cargarNacionalidades()
         {
-
             ddlNacionalidades.DataSource = nn.getNacionalidades();
             ddlNacionalidades.DataValueField = "IdNacionalidad_N";
             ddlNacionalidades.DataTextField = "Descripcion_N";
@@ -233,5 +231,11 @@ namespace Vistas
             txtContra.Text = "";
             txtContraConfir.Text = "";
         }
+        private void ShowAlert(string title, string message, string icon)
+        {
+            string script = "swal.fire({ title: '" + title + "', text: '" + message + "', icon: '" + icon + "' });";
+            ScriptManager.RegisterStartupScript(this, typeof(Page), "alertScript", script, true);
+        }
+
     }
 }

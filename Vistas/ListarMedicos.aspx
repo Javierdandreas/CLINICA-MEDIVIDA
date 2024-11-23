@@ -21,7 +21,12 @@
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="css/sb-admin-2.min.css" rel="stylesheet" />
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.css" rel="stylesheet"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.js" type="text/javascript"></script>
+
+
 
 </head>
 
@@ -186,8 +191,18 @@
                     <h1 class="h3 mb-4 text-gray-800">Listado de Medicos</h1>
 
                     <div class="table-responsive"> 
-                    <asp:GridView ID="grdListadoMed" runat="server" AutoGenerateColumns="False" class="table" AutoGenerateEditButton="True" OnRowCancelingEdit="grdListadoMed_RowCancelingEdit" OnRowEditing="grdListadoMed_RowEditing" OnRowUpdating="grdListadoMed_RowUpdating" AllowCustomPaging="True" AllowPaging="True" OnPageIndexChanging="grdListadoMed_PageIndexChanging">
+                    <asp:GridView ID="grdListadoMed" runat="server" AutoGenerateColumns="False" class="table" OnRowCancelingEdit="grdListadoMed_RowCancelingEdit" OnRowEditing="grdListadoMed_RowEditing" OnRowUpdating="grdListadoMed_RowUpdating" AllowPaging="True" OnPageIndexChanging="grdListadoMed_PageIndexChanging" OnRowDeleting="grdListadoMed_RowDeleting" OnRowDataBound="grdListadoMed_RowDataBound">
                         <Columns>
+                            <asp:TemplateField>
+                                <ItemTemplate>
+                                    <asp:Button CommandName="Edit" runat="server" Text="Editar" class="edit_btn"/>                                    
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField>
+                                <ItemTemplate>
+                                     <asp:Button CommandName="Delete" runat="server" Text="Eliminar" class="delete_btn"/>
+                                </ItemTemplate>
+                            </asp:TemplateField>
                             <asp:TemplateField HeaderText="LEGAJO">
                                 <EditItemTemplate>
                                     <asp:Label ID="lbl_eit_legajo" runat="server" Text='<%# Bind("legajo_M") %>'></asp:Label>
@@ -222,8 +237,10 @@
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="SEXO">
                                 <EditItemTemplate>
-                                    <asp:DropDownList ID="ddl_eit_sexo" runat="server">
-                                    </asp:DropDownList>
+                                    <asp:RadioButtonList ID="rbl_eit_sexo" runat="server">
+                                        <asp:ListItem Value="M">Masculino</asp:ListItem>
+                                        <asp:ListItem Value="F">Femenino</asp:ListItem>
+                                    </asp:RadioButtonList>
                                 </EditItemTemplate>
                                 <ItemTemplate>
                                     <asp:Label ID="lbl_it_sexo" runat="server" Text='<%# Bind("Sexo_M") %>'></asp:Label>
@@ -239,7 +256,7 @@
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="NACIONALIDAD">
                                 <EditItemTemplate>
-                                    <asp:DropDownList ID="ddl_eitm_nacionalidad" runat="server">
+                                    <asp:DropDownList ID="ddl_eit_nacionalidad" runat="server">
                                     </asp:DropDownList>
                                 </EditItemTemplate>
                                 <ItemTemplate>
@@ -248,7 +265,7 @@
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="PROVINCIA">
                                 <EditItemTemplate>
-                                    <asp:DropDownList ID="ddl_eit_provincia" runat="server">
+                                    <asp:DropDownList ID="ddl_eit_provincia" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_eit_provincia_SelectedIndexChanged">
                                     </asp:DropDownList>
                                 </EditItemTemplate>
                                 <ItemTemplate>
@@ -307,7 +324,7 @@
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="CONTRASEÑA">
                                 <EditItemTemplate>
-                                    <asp:Label ID="lbl_eit_contraseña" runat="server" Text='<%# Bind("Password_M") %>'></asp:Label>
+                                    <asp:TextBox ID="txt_eit_contraseña" runat="server" Text='<%# Bind("Password_M") %>'></asp:TextBox>
                                 </EditItemTemplate>
                                 <ItemTemplate>
                                     <asp:Label ID="lbl_it_contraseña" runat="server" Text='<%# Bind("Password_M") %>'></asp:Label>
@@ -375,9 +392,79 @@
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
+    
+    <!-- Alertar personalizadas -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Tablas personalizadas -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
     </form>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <style>
+        .delete_btn {
+          background-color: #ff4646;
+          color: white;
+          border: none;
+          padding: 10px 20px;
+          border-radius: 5px;
+          font-size: 16px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+
+        .delete_btn:hover {
+          background-color: #ff0000;
+          transform: scale(1.05);
+        }
+
+        .delete_btn:active {
+          transform: scale(0.95);
+        }
+
+        .delete_btn::before {
+          content: "×";
+          font-size: 20px;
+          font-weight: bold;
+        }
+
+        .edit_btn {
+          background-color: #4287f5;
+          color: white;
+          border: none;
+          padding: 10px 20px;
+          border-radius: 5px;
+          font-size: 16px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+
+        .edit_btn:hover {
+          background-color: #2563eb;
+          transform: scale(1.05);
+        }
+
+        .edit_btn:active {
+          transform: scale(0.95);
+        }
+
+        .edit_btn::before {
+          content: "✎";
+          font-size: 18px;
+        }
+
+        /* Si quieres usar ambos botones juntos */
+        .button-group {
+          display: flex;
+          gap: 10px;
+        }
+    </style>
 
 </body>
 

@@ -15,12 +15,14 @@
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
 </head>
 
@@ -65,7 +67,9 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="AgregarMedico.aspx">Agregar Medicos</a>
-                        <a class="collapse-item" href="ListarMedicos.aspx">Listar Medicos</a>                    </div>
+                        <a class="collapse-item" href="ListarMedicos.aspx">Listar Medicos</a>    
+
+                    </div>
                 </div>
             </li>
 
@@ -218,7 +222,7 @@
                                     <label for="nacionalidad">NACIONALIDAD:</label>
                                     <asp:DropDownList ID="ddlNacionalidades" runat="server">
                                     </asp:DropDownList>
-                                    <asp:RequiredFieldValidator ID="rfvNacionalidad" runat="server" ControlToValidate="ddlNacionalidades" ErrorMessage="Seleccione Nacionalidad" InitialValue="---Seleccionar---" ValidationGroup="Agregar">*</asp:RequiredFieldValidator>
+                                    <asp:RequiredFieldValidator ID="rfvNacionalidad" runat="server" ControlToValidate="ddlNacionalidades" ErrorMessage="Seleccione Nacionalidad" InitialValue="0" ValidationGroup="Agregar">*</asp:RequiredFieldValidator>
                                 </div>
                       
                                  <div class="form-field">
@@ -235,12 +239,12 @@
                                 <div class="form-field">
                                     <label for="provincia">PROVINCIA:</label>
                                     <asp:DropDownList ID="ddlProvincias" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlProvincias_SelectedIndexChanged" ></asp:DropDownList>
-                                    <asp:RequiredFieldValidator ID="rfvProvincia" runat="server" ControlToValidate="ddlProvincias" ErrorMessage="Seleccione Provincia" InitialValue="---Seleccionar---" ValidationGroup="Agregar">*</asp:RequiredFieldValidator>
+                                    <asp:RequiredFieldValidator ID="rfvProvincia" runat="server" ControlToValidate="ddlProvincias" ErrorMessage="Seleccione Provincia" InitialValue="0" ValidationGroup="Agregar">*</asp:RequiredFieldValidator>
                                 </div>
                                 <div class="form-field">
                                     <label for="localidad">LOCALIDAD:</label>
                                     <asp:DropDownList ID="ddlLocalidades" runat="server" AutoPostBack="True"></asp:DropDownList>
-                                    <asp:RequiredFieldValidator ID="rfvLocalidad" runat="server" ControlToValidate="ddlLocalidades" ErrorMessage="Seleccione Localidad" InitialValue="---Seleccionar---" ValidationGroup="Agregar">*</asp:RequiredFieldValidator>
+                                    <asp:RequiredFieldValidator ID="rfvLocalidad" runat="server" ControlToValidate="ddlLocalidades" ErrorMessage="Seleccione Localidad" InitialValue="0" ValidationGroup="Agregar">*</asp:RequiredFieldValidator>
                                 </div>
 
 
@@ -312,6 +316,7 @@
                               <asp:Label ID="lblAgregado" runat="server" ></asp:Label>
                               <asp:Label ID="lblDiasSeleccionados" runat="server" ></asp:Label>
                               <asp:ValidationSummary ID="ValidationSummary1" runat="server" ValidationGroup="Agregar"/>
+
                     </div>
                      <br> 
                 </div>
@@ -535,5 +540,4 @@
     </form>
 
     </body>
-    </html>
- 
+    </html> 

@@ -13,10 +13,9 @@ namespace Vistas
     {
         NegocioNacionalidades nn = new NegocioNacionalidades();
         NegocioLocalidades nl = new NegocioLocalidades();
+        NegocioProvincias npr = new NegocioProvincias();
         NegocioPacientes np = new NegocioPacientes();
         Paciente p = new Paciente();
-
-        NegocioProvincias npr = new NegocioProvincias();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -27,14 +26,11 @@ namespace Vistas
                 lblNombre.Text = Application["login"].ToString();
             }
         }
-
-
         protected void btnCerrarSesion_Click(object sender, EventArgs e)
         {
             Application["login"] = null;
             Response.Redirect("~/Login.aspx");
         }
-
         private void CargarProvincias()
         {
 
@@ -53,7 +49,6 @@ namespace Vistas
             ddlNacionalidades.DataBind();
             ddlNacionalidades.Items.Insert(0, new ListItem("--Seleccione una Nacionalidad--", "0"));
         }
-
         protected void cargarLocalidades()
         {
 
@@ -68,24 +63,20 @@ namespace Vistas
             }
             else { ddlLocalidades.Items.Insert(0, new ListItem("--Seleccione una Localidad--", "0")); }
         }
-
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
-
             p.DNI_Pac = txtDni.Text; //me fijo si el dni existe en registros
             if (!(np.existeDNI(p)))
             {
                 CargarPaciente(ref p);
-                if (np.addPaciente(p)) lblResultado.Text = "Paciente agregado con éxito";
+                if (np.addPaciente(p)) ShowAlert("¡Perfecto!", "Paciente agregado con éxito!!", "success");
                 limpiarControles();
             }
             else
             {
-                lblResultado.Text = "El DNI ya existe en los registros"; return;
+                ShowAlert("Precaución", "Este DNI ya esta en uso", "warning");
             }
         }
-
-
         private void CargarPaciente(ref Paciente p)
         {
             p.DNI_Pac = txtDni.Text;
@@ -104,7 +95,6 @@ namespace Vistas
             p.telefono_Pac = txtTelefono.Text;
             p.Estado_Pac = 1;
         }
-
         private void limpiarControles()
         {
             txtDni.Text = "";
@@ -119,10 +109,15 @@ namespace Vistas
             ddlProvincias.SelectedIndex = 0;
             ddlLocalidades.Items.Clear();
         }
-
         protected void ddlProvincias_SelectedIndexChanged(object sender, EventArgs e)
         {
             cargarLocalidades();
         }
+        private void ShowAlert(string title, string message, string icon)
+        {
+            string script = "swal.fire({ title: '" + title + "', text: '" + message + "', icon: '" + icon + "' });";
+            ScriptManager.RegisterStartupScript(this, typeof(Page), "alertScript", script, true);
+        }
+
     }
 }
