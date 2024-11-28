@@ -14,17 +14,18 @@
     <title>Listar Medico</title>
 
     <!-- Custom fonts for this template-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"  rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet" />
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.css" rel="stylesheet"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.js" type="text/javascript"></script>
+
 
 
 
@@ -71,7 +72,9 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="AgregarMedico.aspx">Agregar Medicos</a>
-                        <a class="collapse-item" href="ListarMedicos.aspx">Listar Medicos</a>                    </div>
+                        <a class="collapse-item" href="ListarMedicos.aspx">Listar Medicos</a>                    
+
+                    </div>
                 </div>
             </li>
 
@@ -191,18 +194,18 @@
                     <h1 class="h3 mb-4 text-gray-800">Listado de Medicos</h1>
 
                     <div class="table-responsive"> 
-                    <asp:GridView ID="grdListadoMed" runat="server" AutoGenerateColumns="False" class="table" OnRowCancelingEdit="grdListadoMed_RowCancelingEdit" OnRowEditing="grdListadoMed_RowEditing" OnRowUpdating="grdListadoMed_RowUpdating" AllowPaging="True" OnPageIndexChanging="grdListadoMed_PageIndexChanging" OnRowDeleting="grdListadoMed_RowDeleting" OnRowDataBound="grdListadoMed_RowDataBound">
-                        <Columns>
-                            <asp:TemplateField>
-                                <ItemTemplate>
-                                    <asp:Button CommandName="Edit" runat="server" Text="Editar" class="edit_btn"/>                                    
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                            <asp:TemplateField>
-                                <ItemTemplate>
-                                     <asp:Button CommandName="Delete" runat="server" Text="Eliminar" class="delete_btn"/>
-                                </ItemTemplate>
-                            </asp:TemplateField>
+                    <asp:GridView ID="grdListadoMed" runat="server" AutoGenerateColumns="False" class="table" 
+                        OnRowCancelingEdit="grdListadoMed_RowCancelingEdit" 
+                        OnRowEditing="grdListadoMed_RowEditing" 
+                        OnRowUpdating="grdListadoMed_RowUpdating" 
+                        AllowPaging="True" 
+                        OnPageIndexChanging="grdListadoMed_PageIndexChanging" 
+                        
+                        OnRowDataBound="grdListadoMed_RowDataBound" OnRowDeleting="grdListadoMed_RowDeleting">
+                        <Columns> 
+                            <asp:CommandField ShowEditButton="true" HeaderText="" ControlStyle-CssClass="btn edit_btn"/>
+                            <asp:CommandField ShowDeleteButton="true" HeaderText="" ControlStyle-CssClass="btn delete_btn" />
+
                             <asp:TemplateField HeaderText="LEGAJO">
                                 <EditItemTemplate>
                                     <asp:Label ID="lbl_eit_legajo" runat="server" Text='<%# Bind("legajo_M") %>'></asp:Label>
@@ -399,70 +402,53 @@
     <!-- Tablas personalizadas -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
+
     </form>
 
     <style>
-        .delete_btn {
-          background-color: #ff4646;
-          color: white;
-          border: none;
-          padding: 10px 20px;
-          border-radius: 5px;
-          font-size: 16px;
-          cursor: pointer;
-          transition: all 0.3s ease;
-          display: flex;
-          align-items: center;
-          gap: 8px;
+        .btn {
+            padding: 10px 15px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.2s ease;
         }
 
-        .delete_btn:hover {
-          background-color: #ff0000;
-          transform: scale(1.05);
-        }
-
-        .delete_btn:active {
-          transform: scale(0.95);
-        }
-
-        .delete_btn::before {
-          content: "×";
-          font-size: 20px;
-          font-weight: bold;
+        .insert_btn {
+            background-color: #4CAF50;
+            color: white;
         }
 
         .edit_btn {
-          background-color: #4287f5;
-          color: white;
-          border: none;
-          padding: 10px 20px;
-          border-radius: 5px;
-          font-size: 16px;
-          cursor: pointer;
-          transition: all 0.3s ease;
-          display: flex;
-          align-items: center;
-          gap: 8px;
+            background-color: #2196F3;
+            color: white;
         }
 
-        .edit_btn:hover {
-          background-color: #2563eb;
-          transform: scale(1.05);
+        .delete_btn {
+            background-color: #F44336;
+            color: white;
         }
 
-        .edit_btn:active {
-          transform: scale(0.95);
+        .btn:hover {
+            opacity: 0.8;
+            transform: scale(1.05);
         }
 
-        .edit_btn::before {
-          content: "✎";
-          font-size: 18px;
+        .btn:hover.insert_btn {
+            color: white;
+            background-color: darkgreen;
         }
 
-        /* Si quieres usar ambos botones juntos */
-        .button-group {
-          display: flex;
-          gap: 10px;
+        .btn:hover.edit_btn {
+            color: white;
+            background-color: dodgerblue;
+        }
+
+        .btn:hover.delete_btn {
+            color: white;
+            background-color: darkred;
         }
     </style>
 

@@ -183,19 +183,65 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
+                    <div class="container">
+                        <div class="header">
+                            <h1>Agregar Paciente</h1>
+                        </div>
 
-                    <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">Turnos del Administrador</h1>
+                            <div class="section-title">DATOS DEL MEDICO</div>
+            
+                            <div class="form-group">
+                                <div class="form-field">
+                                    <label for="dni">Especialidad:</label>
+                                   <asp:DropDownList ID="ddl_especialidades" runat="server">
+                                    </asp:DropDownList>
+                                </div>
+                                <div class="form-field">
+                                    <label for="nombre">Medico</label>
+                                    <asp:DropDownList ID="ddl_medicos" runat="server">
+                                    </asp:DropDownList>          
+                                </div>
+                                <div class="form-field">
+                                    <label for="apellido">Día</label>
+                                    <asp:DropDownList ID="ddl_dias" runat="server">
+                                    </asp:DropDownList>
+                                </div>
+                                <div class="form-field">
+                                    <label for="fechaNacimiento">Horario</label>
+                                    <asp:DropDownList ID="ddl_horarios" runat="server">
+                                    </asp:DropDownList> 
+                                </div>
+                            </div>
+                            
 
+                            <div class="section-title">DATOS DEL PACIENTE</div>
+                            <div class="form-group">
+                                <div class="form-field">
+                                    <label for="dni">Nombre o apellido del paciente:</label>
+                                    <asp:TextBox ID="txt_nom_ape" runat="server"></asp:TextBox>
+                                </div>
+                                <div class="form-field">
+                                    <label for="dni"></label>
+                                    <asp:Button runat="server" ID="btnBuscarPaciente" Text="Buscar"/>
+                                </div>
+                                <div class="form-field">
+                                    <label for="dni">Pacientes:</label>
+                                    <asp:DropDownList ID="ddl_pacientes" class="ddl" runat="server">
+                                    </asp:DropDownList>          
+                                </div>
+                            </div>
+                    </div>
+                    <br/>
+                </div>
                 </div>
                 <!-- /.container-fluid -->
 
-            </div>
+            
             <!-- End of Main Content -->
 
             <!-- Footer -->
             <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
+                <div class="my-auto">
                     <div class="copyright text-center my-auto">
                         <span>Copyright &copy; Your Website 2020</span>
                     </div>
@@ -245,6 +291,95 @@
     <script src="js/sb-admin-2.min.js"></script>
 
     </form>
+     <style>    
+                    .ddl{
+                        
+                    }
+                    * {
+                        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    }
+
+                    #btnBuscarPaciente {
+                        margin-top: 18px;
+                        background: #3f65d3;
+                        color: white;
+                        padding: 12px 25px;
+                        border: none;
+                        border-radius: 5px;
+                        cursor: pointer;
+                        font-size: 16px;
+                        transition: background 0.3s;
+                    }
+
+                    #btnBuscarPaciente:hover {
+                        background: #1976D2;
+                    }
+
+                    .container {
+                        max-width: 1000px;
+                        margin: 0 auto;
+                        background: white;
+                        padding: 30px;
+                        border-radius: 10px;
+                        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+                    }
+
+                    .header {
+                        background: #3f65d3;
+                        color: white;
+                        padding: 20px;
+                        border-radius: 8px;
+                        margin-bottom: 25px;
+                        text-align: center;
+                    }
+
+                    .section-title {
+                        background: #3f65d3;
+                        color: white;
+                        padding: 10px;
+                        border-radius: 5px;
+                        margin: 20px 0 15px 0;
+                    }
+
+                    .form-group {
+                        display: grid;
+                        grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+                        gap: 20px;
+                        margin-bottom: 15px;
+                    }
+
+                    .form-field {
+                        margin-bottom: 15px;
+                    }
+
+                    label {
+                        display: block;
+                        margin-bottom: 5px;
+                        color: #333;
+                        font-weight: 500;
+                    }
+
+                    input[type="text"],
+                    input[type="email"],
+                    input[type="tel"],
+                    select {
+                        width: 100%;
+                        padding: 10px;
+                        border: 1px solid #ddd;
+                        border-radius: 5px;
+                        font-size: 14px;
+                        transition: border-color 0.3s;
+                    }
+
+                    input[type="text"]:focus,
+                    input[type="email"]:focus,
+                    input[type="tel"]:focus,
+                    select:focus {
+                        border-color: #3f65d3;
+                        outline: none;
+                        box-shadow: 0 0 5px rgba(70, 72, 212, 0.3);
+                    }
+        </style>
 
 </body>
 

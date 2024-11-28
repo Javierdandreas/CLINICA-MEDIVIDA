@@ -63,10 +63,10 @@ namespace Negocio
             if (cantFilas == 1) return true;
             return false;
         }
-        public bool bajaLogicaPaciente(Paciente pac)
+        public bool bajaLogicaPaciente(string dni)
         {
             int cantFilas = 0;
-            cantFilas = dao.bajaLogicaPaciente(pac);
+            cantFilas = dao.bajaLogicaPaciente(dni);
             if (cantFilas == 1) return true;
             return false;
         }

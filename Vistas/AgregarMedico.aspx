@@ -84,9 +84,7 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="AgregarPaciente.aspx">Agregar Pacientes</a>
-                        <a class="collapse-item" href="ModificarPaciente.aspx">Modificar Pacientes</a>
                         <a class="collapse-item" href="ListarPacientes.aspx">Listar Pacientes</a>
-                        <a class="collapse-item" href="EliminarPaciente.aspx">Eliminar Pacientes</a>
                     </div>
                 </div>
             </li>

@@ -57,16 +57,16 @@ namespace Dao
             return false;
         }
 
-        public int bajaLogicaPaciente(Paciente pac)
+        public int bajaLogicaPaciente(string dni)
         {
-            String consulta = "UPDATE Pacientes SET Estado_Pac = 0 WHERE DNI_Pac = '" + pac.DNI_Pac + "'";
+            String consulta = "UPDATE Pacientes SET Estado_Pac = 0 WHERE DNI_Pac = '" + dni + "'";
             int filasCambiadas = ad.EjecutarNonQuery(consulta);
             return filasCambiadas;
         }
 
         public DataTable traerPacientesModificar()
         {
-            DataTable dt = ad.obtenerTabla("ModificarPacientes", "Select * From TraerPacientesModificar");
+            DataTable dt = ad.obtenerTabla("ModificarPacientes", "Select * From TraerPacientesModificar where Estado_Pac = 1");
             return dt;
         }
         public DataTable traerPacientePorDNIModificar(Paciente pc)

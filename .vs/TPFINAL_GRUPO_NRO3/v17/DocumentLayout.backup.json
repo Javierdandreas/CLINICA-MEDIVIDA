@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "E:\\UTN\\PROYECTO ASP.NET\\CLINICA MEDIVIDA VSC\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{530FCEDD-5C1C-4B68-A298-886CBE65B2E8}|Vistas\\Vistas.csproj|E:\\UTN\\PROYECTO ASP.NET\\CLINICA MEDIVIDA VSC\\vistas\\listarmedicos.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{530FCEDD-5C1C-4B68-A298-886CBE65B2E8}|Vistas\\Vistas.csproj|solutionrelative:vistas\\listarmedicos.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{530FCEDD-5C1C-4B68-A298-886CBE65B2E8}|Vistas\\Vistas.csproj|e:\\utn\\proyecto asp.net\\clinica medivida vsc\\vistas\\turnosadmin.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{530FCEDD-5C1C-4B68-A298-886CBE65B2E8}|Vistas\\Vistas.csproj|solutionrelative:vistas\\turnosadmin.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{530FCEDD-5C1C-4B68-A298-886CBE65B2E8}|Vistas\\Vistas.csproj|e:\\utn\\proyecto asp.net\\clinica medivida vsc\\vistas\\agregarpaciente.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{530FCEDD-5C1C-4B68-A298-886CBE65B2E8}|Vistas\\Vistas.csproj|solutionrelative:vistas\\agregarpaciente.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{530FCEDD-5C1C-4B68-A298-886CBE65B2E8}|Vistas\\Vistas.csproj|e:\\utn\\proyecto asp.net\\clinica medivida vsc\\vistas\\listarmedicos.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{530FCEDD-5C1C-4B68-A298-886CBE65B2E8}|Vistas\\Vistas.csproj|solutionrelative:vistas\\listarmedicos.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{530FCEDD-5C1C-4B68-A298-886CBE65B2E8}|Vistas\\Vistas.csproj|e:\\utn\\proyecto asp.net\\clinica medivida vsc\\vistas\\agregarmedico.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{530FCEDD-5C1C-4B68-A298-886CBE65B2E8}|Vistas\\Vistas.csproj|solutionrelative:vistas\\agregarmedico.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,32 +22,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "ListarMedicos.aspx.cs",
-              "DocumentMoniker": "E:\\UTN\\PROYECTO ASP.NET\\CLINICA MEDIVIDA VSC\\Vistas\\ListarMedicos.aspx.cs",
-              "RelativeDocumentMoniker": "Vistas\\ListarMedicos.aspx.cs",
-              "ToolTip": "E:\\UTN\\PROYECTO ASP.NET\\CLINICA MEDIVIDA VSC\\Vistas\\ListarMedicos.aspx.cs",
-              "RelativeToolTip": "Vistas\\ListarMedicos.aspx.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAgwLsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T02:58:54.031Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ListarMedicos.aspx",
-              "DocumentMoniker": "E:\\UTN\\PROYECTO ASP.NET\\CLINICA MEDIVIDA VSC\\Vistas\\ListarMedicos.aspx",
-              "RelativeDocumentMoniker": "Vistas\\ListarMedicos.aspx",
-              "ToolTip": "E:\\UTN\\PROYECTO ASP.NET\\CLINICA MEDIVIDA VSC\\Vistas\\ListarMedicos.aspx*",
-              "RelativeToolTip": "Vistas\\ListarMedicos.aspx*",
+              "Title": "AgregarMedico.aspx",
+              "DocumentMoniker": "E:\\UTN\\PROYECTO ASP.NET\\CLINICA MEDIVIDA VSC\\Vistas\\AgregarMedico.aspx",
+              "RelativeDocumentMoniker": "Vistas\\AgregarMedico.aspx",
+              "ToolTip": "E:\\UTN\\PROYECTO ASP.NET\\CLINICA MEDIVIDA VSC\\Vistas\\AgregarMedico.aspx",
+              "RelativeToolTip": "Vistas\\AgregarMedico.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-11-16T03:03:22.411Z",
+              "WhenOpened": "2024-11-27T00:19:27.929Z",
               "EditorCaption": ""
             },
             {
@@ -60,7 +47,20 @@
               "RelativeToolTip": "Vistas\\AgregarPaciente.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-11-22T03:44:05.932Z",
+              "WhenOpened": "2024-11-26T23:46:44.317Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TurnosAdmin.aspx",
+              "DocumentMoniker": "E:\\UTN\\PROYECTO ASP.NET\\CLINICA MEDIVIDA VSC\\Vistas\\TurnosAdmin.aspx",
+              "RelativeDocumentMoniker": "Vistas\\TurnosAdmin.aspx",
+              "ToolTip": "E:\\UTN\\PROYECTO ASP.NET\\CLINICA MEDIVIDA VSC\\Vistas\\TurnosAdmin.aspx",
+              "RelativeToolTip": "Vistas\\TurnosAdmin.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-11-26T23:43:20.573Z",
               "EditorCaption": ""
             }
           ]
