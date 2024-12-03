@@ -307,9 +307,12 @@
                                         <asp:Label ID="lbl_it_Telefono" runat="server" Text='<%# Bind("Telefono_Pac") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
+                                
                             </Columns>
+                        <RowStyle CssClass="centered"/>
+                        <HeaderStyle CssClass="centered" />
                         </asp:GridView>
-                     </div>
+                    </div>
                     
                     
 
@@ -377,6 +380,9 @@
     </form>
 
     <style>
+        .centered {
+            text-align: center;
+        }
         .btn {
             padding: 10px 15px;
             margin: 5px;

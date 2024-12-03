@@ -14,6 +14,9 @@ namespace Vistas
     {
         NegocioNacionalidades nn = new NegocioNacionalidades();
         NegocioEspecialidades ne = new NegocioEspecialidades();
+        NegocioDiasMedicos dm = new NegocioDiasMedicos();
+        NegocioFechasJunio fj = new NegocioFechasJunio();
+        NegocioTurnosJunio tj = new NegocioTurnosJunio();
         NegocioLocalidades nl = new NegocioLocalidades();
         NegocioProvincias np = new NegocioProvincias();
         NegocioHorarios nh = new NegocioHorarios();
@@ -81,11 +84,11 @@ namespace Vistas
             nm.addMedico(med);
             //como el Legajo es autonumerico, me traigo el numero de legajo generado en la db y se lo cargo al medico que recien cree. Esto me va a permitir generar los registro de la tabla DIASMEDICOS
             med.Legajo_M = nm.GetLegajoMedicoPorDNI(med);
-            //GENERO LOS DIAS Y HORAS QUE VA A TRABAJAR EL MEDICO EN LA CLINICA. ESTOS REGISTROS APARECERAN EN LA TABLA DIASMEDICOS. 
-
+            
+            ShowAlert("Medico agregado con éxito!!", "Genera los turnos al respectivo medico", "success");
             cargarTablaDiasMedicos(med);
-            ShowAlert("¡Perfecto!", "Medico agregado con éxito!!", "success");
             limpiarControles();
+            btnGenerarTurnos.Visible = true;
         }
         private void CargarMedico(ref Medico m)
         {
@@ -236,6 +239,44 @@ namespace Vistas
             string script = "swal.fire({ title: '" + title + "', text: '" + message + "', icon: '" + icon + "' });";
             ScriptManager.RegisterStartupScript(this, typeof(Page), "alertScript", script, true);
         }
+        protected void btnGenerarTurnos_Click(object sender, EventArgs e)
+        {
+            //GENERO LOS DIAS Y HORAS QUE VA A TRABAJAR EL MEDICO EN LA CLINICA. ESTOS REGISTROS APARECERAN EN LA TABLA DIASMEDICOS. 
+            DataTable tablaDiasMedico = dm.getTodosLosDiasMedicos(); //traigo tabla DiasMedicos
+            DataTable tablaFechasJunio = fj.getFechasJunio(); //traigo tabla FechasJunio
 
+
+            foreach (DataRow registro in tablaDiasMedico.Rows) //Por cada registro de la tabla DiasMedicos, recorro toda la tabla FechasJunio
+            {
+                DiasMedicos regDM = new DiasMedicos();
+                regDM.Legajo_DM = Convert.ToInt32(registro["legajo_DM"]);
+                regDM.CodDia_DM = registro["codDia_DM"].ToString();
+                regDM.CodHorario_DM = registro["codHorario_DM"].ToString();
+
+                foreach (DataRow fecha in tablaFechasJunio.Rows)
+                {
+                    FechasJunio regFJ = new FechasJunio();
+                    regFJ.CodFecha_F = fecha["codFecha_f"].ToString();
+                    regFJ.CodDia_F = fecha["codDia_f"].ToString();
+
+                    if (regDM.CodDia_DM == regFJ.CodDia_F) //Si los codigos de dia coinciden, se genera el turno;
+                    {
+                        RegistroTurno nuevoTurno = new RegistroTurno();
+                        nuevoTurno.Legajo = regDM.Legajo_DM;
+                        nuevoTurno.CodDia = regDM.CodDia_DM;
+                        nuevoTurno.CodHorario = regDM.CodHorario_DM;
+                        nuevoTurno.CodFecha = regFJ.CodFecha_F;
+
+                        //verifico que este medico no tenga ese turno generado en la tabla turnosJunio, de lo contrario se duplicaria.
+                        //esto sirve para que solo agregué los turnos de los medicos nuevos. No vuelve a cargar los que ya tienen los turnos generados!!
+                        if (!(tj.existeTurno(nuevoTurno)))
+                        {
+                            tj.agregarTurno(nuevoTurno);
+                            ShowAlert("¡Perfecto!", "Turnos generados con exito con éxito!!", "success");
+                        }
+                    }
+                }
+            }
+        }
     }
 }

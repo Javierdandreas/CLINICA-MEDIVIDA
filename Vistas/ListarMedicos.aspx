@@ -334,6 +334,8 @@
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>
+                        <RowStyle CssClass="centered"/>
+                        <HeaderStyle CssClass="centered" />
                     </asp:GridView>
                 </div>
 
@@ -406,6 +408,9 @@
     </form>
 
     <style>
+        .centered {
+            text-align: center;
+        }
         .btn {
             padding: 10px 15px;
             margin: 5px;
@@ -416,9 +421,18 @@
             transition: transform 0.2s ease;
         }
 
+        .btn:hover {
+            opacity: 0.8;
+            transform: scale(1.05);
+        }
+
         .insert_btn {
             background-color: #4CAF50;
             color: white;
+        }
+        .btn:hover.insert_btn {
+            color: white;
+            background-color: darkgreen;
         }
 
         .edit_btn {
@@ -429,16 +443,6 @@
         .delete_btn {
             background-color: #F44336;
             color: white;
-        }
-
-        .btn:hover {
-            opacity: 0.8;
-            transform: scale(1.05);
-        }
-
-        .btn:hover.insert_btn {
-            color: white;
-            background-color: darkgreen;
         }
 
         .btn:hover.edit_btn {

@@ -15,12 +15,17 @@
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.css" rel="stylesheet"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.js" type="text/javascript"></script>
 
 </head>
 
@@ -185,7 +190,7 @@
                 <div class="container-fluid">
                     <div class="container">
                         <div class="header">
-                            <h1>Agregar Paciente</h1>
+                            <h1>Asignar Turno a paciente</h1>
                         </div>
 
                             <div class="section-title">DATOS DEL MEDICO</div>
@@ -193,23 +198,26 @@
                             <div class="form-group">
                                 <div class="form-field">
                                     <label for="dni">Especialidad:</label>
-                                   <asp:DropDownList ID="ddl_especialidades" runat="server">
+                                   <asp:DropDownList ID="ddl_especialidades" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_especialidades_SelectedIndexChanged">
                                     </asp:DropDownList>
                                 </div>
                                 <div class="form-field">
                                     <label for="nombre">Medico</label>
-                                    <asp:DropDownList ID="ddl_medicos" runat="server">
+                                    <asp:DropDownList ID="ddl_medicos" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_medicos_SelectedIndexChanged">
                                     </asp:DropDownList>          
                                 </div>
                                 <div class="form-field">
                                     <label for="apellido">Día</label>
-                                    <asp:DropDownList ID="ddl_dias" runat="server">
+                                    <asp:DropDownList ID="ddl_dias" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_dias_SelectedIndexChanged">
                                     </asp:DropDownList>
                                 </div>
                                 <div class="form-field">
                                     <label for="fechaNacimiento">Horario</label>
                                     <asp:DropDownList ID="ddl_horarios" runat="server">
                                     </asp:DropDownList> 
+                                </div>
+                                <div class="form-field">
+                                    <asp:Button runat="server" ID="btnFiltrarTurnos" Text="Filtrar Turnos" OnClick="btnFiltrarTurnos_Click"/>
                                 </div>
                             </div>
                             
@@ -219,10 +227,7 @@
                                 <div class="form-field">
                                     <label for="dni">Nombre o apellido del paciente:</label>
                                     <asp:TextBox ID="txt_nom_ape" runat="server"></asp:TextBox>
-                                </div>
-                                <div class="form-field">
-                                    <label for="dni"></label>
-                                    <asp:Button runat="server" ID="btnBuscarPaciente" Text="Buscar"/>
+                                    <asp:Button runat="server" ID="btnBuscarPaciente" Text="Buscar" OnClick="btnBuscarPaciente_Click"/>
                                 </div>
                                 <div class="form-field">
                                     <label for="dni">Pacientes:</label>
@@ -230,9 +235,50 @@
                                     </asp:DropDownList>          
                                 </div>
                             </div>
+                        <div class="form-group">
+                            <div class="table-responsive">
+                                <asp:GridView ID="grdTurnos" runat="server" AutoGenerateColumns="False" Visible="false" class="table">
+                                    <Columns>
+                                        <asp:TemplateField HeaderText="TURNO">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lbl_it_Turno" runat="server" Text='<%# Bind("Id_turno") %>'></asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="MEDICO" >
+                                            <ItemTemplate>
+                                                <asp:Label ID="lbl_it_medico" runat="server" Text='<%# Bind("NombreCompleto") %>'></asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="DÍA">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lbl_it_Dia" runat="server" Text='<%# Bind("Dias") %>'></asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="HORAIO" >
+                                            <ItemTemplate>
+                                                <asp:Label ID="lbl_it_Horario" runat="server" Text='<%# Bind("CodHorario_TJ") %>'></asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="FECHA" >
+                                            <ItemTemplate>
+                                                <asp:Label ID="lbl_it_fecha" runat="server" Text='<%# Bind("CodFecha_TJ") %>'></asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:TemplateField>
+                                            <ItemTemplate>
+                                                <asp:Button CssClass="btn btnTomarTurno" ID="btnTomarTurno" runat="server" CommandArgument='<%# Eval("Id_turno")+";"+Eval("NombreCompleto")+";"+Eval("Dias")+";"+Eval("CodHorario_TJ")+";"+Eval("CodFecha_TJ") %>' CommandName="eventoTomarTurno" OnCommand="btnTomarTurno_Command" Text="Tomar Turno" ValidationGroup="Paciente" />
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                    </Columns>
+                                    <RowStyle CssClass="centered"/>
+                                    <HeaderStyle CssClass="centered" />
+                                </asp:GridView>
+                            </div>
+                        </div>
+                    </div>
+
                     </div>
                     <br/>
-                </div>
                 </div>
                 <!-- /.container-fluid -->
 
@@ -290,16 +336,44 @@
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
     </form>
-     <style>    
-                    .ddl{
-                        
+     
+    <style>    
+                    .btn {
+                        padding: 10px 15px;
+                        margin: 5px;
+                        border: none;
+                        border-radius: 5px;
+                        cursor: pointer;
+                        font-weight: bold;
+                        transition: transform 0.2s ease;
+                    }
+
+                    .btn:hover {
+                        opacity: 0.8;
+                        transform: scale(1.05);
+                    }
+
+                    .btnTomarTurno {
+                        background-color: #4CAF50;
+                        color: white;
+                    }
+                    .btn:hover.btnTomarTurno {
+                        color: white;
+                        background-color: darkgreen;
+                    }
+                    .centered {
+                        text-align: center;
                     }
                     * {
                         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
                     }
 
-                    #btnBuscarPaciente {
+                    #btnBuscarPaciente, #btnFiltrarTurnos {
                         margin-top: 18px;
                         background: #3f65d3;
                         color: white;
@@ -311,12 +385,12 @@
                         transition: background 0.3s;
                     }
 
-                    #btnBuscarPaciente:hover {
+                    #btnBuscarPaciente:hover, #btnFiltrarTurnos {
                         background: #1976D2;
                     }
 
                     .container {
-                        max-width: 1000px;
+                        max-width: 1200px;
                         margin: 0 auto;
                         background: white;
                         padding: 30px;

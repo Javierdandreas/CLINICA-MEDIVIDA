@@ -21,5 +21,11 @@ namespace Negocio
             return dao.obtenerEspecialidad(descripcionE);
         }
 
+        public DataTable getEspecialidadesTurno()
+        {
+            DaoEspecialidades dao = new DaoEspecialidades();
+            return dao.obtenerEspecialidadTurno();
+        }
+
     }
 }

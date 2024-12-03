@@ -69,6 +69,15 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.DropDownList ddl_horarios;
 
         /// <summary>
+        /// Control btnFiltrarTurnos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnFiltrarTurnos;
+
+        /// <summary>
         /// Control txt_nom_ape.
         /// </summary>
         /// <remarks>
@@ -94,5 +103,14 @@ namespace Vistas
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddl_pacientes;
+
+        /// <summary>
+        /// Control grdTurnos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdTurnos;
     }
 }
