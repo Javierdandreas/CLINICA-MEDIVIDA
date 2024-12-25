@@ -188,7 +188,8 @@ namespace Vistas
 
         private void ShowAlert(string title, string message, string icon)
         {
-            string script = "swal.fire({ title: '" + title + "', text: '" + message + "', icon: '" + icon + "' });";
+            string script = "swal.fire({ " + "title: '" + title + "', text: '" + message + "', icon: '" + icon + "' " +
+                "});";
             ScriptManager.RegisterStartupScript(this, typeof(Page), "alertScript", script, true);
         }
 
@@ -285,6 +286,5 @@ namespace Vistas
                 ddlLoc.DataBind();
             }
         }
-
     }
 }

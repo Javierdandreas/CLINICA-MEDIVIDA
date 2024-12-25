@@ -66,6 +66,7 @@
   <ItemGroup>
     <Content Include="AgregarMedico.aspx" />
     <Content Include="AgregarPaciente.aspx" />
+    <Content Include="DatosMedico.aspx" />
     <Content Include="imagenes_banderas\01.jpg" />
     <Content Include="imagenes_banderas\02.jpg" />
     <Content Include="imagenes_banderas\03.jpg" />
@@ -115,6 +116,13 @@
     </Compile>
     <Compile Include="AgregarPaciente.aspx.designer.cs">
       <DependentUpon>AgregarPaciente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DatosMedico.aspx.cs">
+      <DependentUpon>DatosMedico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DatosMedico.aspx.designer.cs">
+      <DependentUpon>DatosMedico.aspx</DependentUpon>
     </Compile>
     <Compile Include="ListarMedicos.aspx.cs">
       <DependentUpon>ListarMedicos.aspx</DependentUpon>

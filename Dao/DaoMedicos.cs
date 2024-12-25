@@ -21,7 +21,7 @@ namespace Dao
 
         public DataTable traerMedicosModificar()
         {
-            DataTable dt = ad.obtenerTabla("Medicos", "SELECT M.*, E.descripcion_e as Especialidad, 'Estado_Descripcion' = case when Estado_M = 1 then 'Activo' when Estado_M = 0 then 'Inactivo' end, P.descripcion_P as DescripcionProvincia_M, L.descripcion_L as DescripcionLocalidad_M, N.Descripcion_N as DescripcionNacionalidad_M  FROM (((Medicos M inner Join Especialidades E on M.codEspecialidad_M = E.codEspecialidad_e) inner join Provincias P on M.codProv_M = P.codProv_P)  inner join Localidades L on M.codLoc_M = L.codLoc_L)  inner join Nacionalidades N on M.IdNacionalidad_M = N.IdNacionalidad_N where Estado_M = 1");
+            DataTable dt = ad.obtenerTabla("Medicos", "SELECT M.*, E.descripcion_e as Especialidad, 'Estado_Descripcion' = case when Estado_M = 1 then 'Activo' when Estado_M = 0 then 'Inactivo' end, P.descripcion_P as DescripcionProvincia_M, L.descripcion_L as DescripcionLocalidad_M, N.Descripcion_N as DescripcionNacionalidad_M  FROM (((Medicos M inner Join Especialidades E on M.codEspecialidad_M = E.codEspecialidad_e) inner join Provincias P on M.codProv_M = P.codProv_P)  inner join Localidades L on M.codLoc_M = L.codLoc_L) inner join Nacionalidades N on M.IdNacionalidad_M = N.IdNacionalidad_N where Estado_M = 1");
             return dt;
         }
 

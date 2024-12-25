@@ -16,9 +16,6 @@ namespace Vistas
         NegocioEspecialidades ne = new NegocioEspecialidades();
         NegocioPacientes np = new NegocioPacientes();
         RegistroTurno turno = new RegistroTurno();
-
-
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!(IsPostBack))
@@ -135,9 +132,9 @@ namespace Vistas
             if (e.CommandName == "eventoTomarTurno")
             {
                 
-                if(ddl_pacientes.SelectedValue == "---Sin coincidencias---")
+                if (txt_nom_ape.Text == "")
                 {
-                    ShowAlert("Busque otro paciente","","error");
+                    ShowAlert("Busque un Paciente valido","","error");
                     return;
                     
                 }
@@ -146,8 +143,8 @@ namespace Vistas
                 int Idturno = Convert.ToInt32(argumentoCompleto.Split(';')[0]);
                 string nombreMedico = argumentoCompleto.Split(';')[1];
                 string diaYhora = argumentoCompleto.Split(';')[2] + " a las " + argumentoCompleto.Split(';')[3];
+                string nombrePaciente = ddl_pacientes.SelectedItem.ToString();
                 string fecha = argumentoCompleto.Split(';')[4];
-                string nombrePaciente = ddl_pacientes.SelectedItem.ToString(); //me guardo el nombre del paciente para el mensaje
                 string dniPaciente = ddl_pacientes.SelectedValue; //me guardo el dni del paciente para la tabla turnosJunio
 
                 RegistroTurno turno = new RegistroTurno();
@@ -171,11 +168,19 @@ namespace Vistas
                 ddl_pacientes.Items.Clear();
             }
         }
-
         private void ShowAlert(string title, string message, string icon)
         {
             string script = "swal.fire({ title: '" + title + "', html: '" + message + "', icon: '" + icon + "' });";
             ScriptManager.RegisterStartupScript(this, typeof(Page), "alertScript", script, true);
+        }
+        protected void grdTurnos_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            grdTurnos.PageIndex = e.NewPageIndex;
+            string CodEspe = ddl_especialidades.SelectedValue;
+            turno.Legajo = Convert.ToInt32(ddl_medicos.SelectedValue);
+            turno.CodDia = ddl_dias.SelectedValue;
+            turno.CodHorario = ddl_horarios.SelectedValue;
+            CargarTurnos(true, CodEspe, turno);
         }
     }
 }
