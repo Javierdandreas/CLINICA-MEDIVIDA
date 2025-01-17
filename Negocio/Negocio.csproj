@@ -57,6 +57,7 @@
     <Compile Include="NegocioNacionalidades.cs" />
     <Compile Include="NegocioPacientes.cs" />
     <Compile Include="NegocioProvincias.cs" />
+    <Compile Include="NegocioReportes.cs" />
     <Compile Include="NegocioTurnosJunio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

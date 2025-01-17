@@ -14,6 +14,7 @@
     <title>Reporte 1</title>
 
     <!-- Custom fonts for this template-->
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
@@ -21,6 +22,26 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <script type="text/javascript">
+
+        google.charts.load("current", { packages: ["corechart"] });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable(<%=ObtenerDatos()%>);
+
+            var options = {
+                title: 'Cantidad de medicos por especialidad',
+                is3D: true,
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+            chart.draw(data, options);
+        }
+    </script>
 
 </head>
 
@@ -59,7 +80,7 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
+                    <i class="fa-solid fa-user"></i>
                     <span>Medicos</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -74,7 +95,7 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
+                    <i class="fa-solid fa-bed-pulse"></i>
                     <span>Pacientes</span>
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
@@ -89,24 +110,16 @@
             <hr class="sidebar-divider">
 
             <!-- Nav Item - Pages Collapse Menu -->
+
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                    aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Reportes</span>
-                </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="Reporte1.aspx">Reporte 1</a>
-                        <a class="collapse-item" href="Reporte2.aspx">Reporte 2</a>
-                        <a class="collapse-item" href="Reporte3.aspx">Reporte 3</a>
-                    </div>
-                </div>
+                <a class="nav-link" href="Reporte1.aspx">
+                    <i class="fa-solid fa-chart-pie"></i>
+                    <span>Turnos</span></a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="TurnosAdmin.aspx">
-                    <i class="fas fa-fw fa-table"></i>
+                    <i class="fa-solid fa-calendar-days"></i>
                     <span>Turnos</span></a>
             </li>
 
@@ -170,6 +183,8 @@
 
                     <!-- Page Heading -->
                     <h1 class="h3 mb-4 text-gray-800">Reporte 1</h1>
+
+                        <div id="piechart_3d" style="width: 900px; height: 500px;"></div>
 
                 </div>
                 <!-- /.container-fluid -->
